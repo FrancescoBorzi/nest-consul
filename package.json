@@ -1,0 +1,31 @@
+{
+  "name": "nest-consul",
+  "version": "0.0.3",
+  "description": "Nest - modern, fast, powerful node.js web framework (@consul)",
+  "author": "Miaowing <i@zfeng.net>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^4.5.0",
+    "consul": "^0.30.0",
+    "typescript": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.41",
+    "ts-node": "^3.3.0"
+  },
+  "main": "lib/index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaowing/nest-consul.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miaowing/nest-consul/issues"
+  },
+  "homepage": "https://github.com/miaowing/nest-consul#readme"
+}
