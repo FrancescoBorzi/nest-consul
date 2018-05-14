@@ -1,5 +1,5 @@
 export interface ConsulOptions {
-  host: string;
+  host?: string;
   port?: number;
   secure?: boolean;
   ca?: string[] | Buffer[];
