@@ -52,6 +52,21 @@ import { ConsulModule } from 'nest-consul';
 export class ApplicationModule {}
 ```
 
+If you use [nest-bootstrap](https://github.com/miaowing/nest-bootstrap) module and get the consul options from it.
+
+```typescript
+import { Module } from '@nestjs/common';
+import { ConsulModule } from 'nest-consul';
+
+@Module({
+  imports: [ConsulModule.forRoot({
+    bootstrap: true,
+    bootstrapPath: 'consul'
+  })],
+})
+export class ApplicationModule {}
+```
+
 #### Consul Client Injection
 
 ```typescript
