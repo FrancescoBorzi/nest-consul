@@ -4,6 +4,6 @@ export interface ConsulOptions {
   secure?: boolean;
   ca?: string[] | Buffer[];
   defaults?: object;
-  bootstrap?: boolean;
-  bootstrapPath?: string;
+  useBootModule?: boolean;
+  bootPath?: string;
 }

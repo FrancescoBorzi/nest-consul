@@ -27,7 +27,7 @@
 
 ## Description
 
-This is a [Consul](http://consul.io/) module for [Nest](https://github.com/nestjs/nest).
+This is a [Consul](http://consul.io/) module for [Nest](https://github.com/nestjs/nest), based on [node-consul](https://github.com/silas/node-consul).
 
 ## Installation
 
@@ -52,43 +52,50 @@ import { ConsulModule } from 'nest-consul';
 export class ApplicationModule {}
 ```
 
-If you use [nest-bootstrap](https://github.com/miaowing/nest-bootstrap) module and get the consul options from it.
+If you use [nest-boot](https://github.com/miaowing/nest-boot) module.
 
 ```typescript
 import { Module } from '@nestjs/common';
 import { ConsulModule } from 'nest-consul';
+import { BootModule } from 'nest-boot';
 
 @Module({
-  imports: [ConsulModule.forRoot({
-    bootstrap: true,
-    bootstrapPath: 'consul'
-  })],
+  imports: [
+      BootModule.forRoot(__dirname, 'bootstrap.yml'),
+      ConsulModule.forRoot({
+        useBootModule: true,
+        bootPath: 'consul'
+      })
+  ],
 })
 export class ApplicationModule {}
 ```
 
-#### Consul Client Injection
+##### bootstrap.yml
+
+```yaml
+consul:
+  host: localhost
+  port: 8500
+```
+
+#### Consul Injection
 
 ```typescript
 import { Component } from '@nestjs/common';
 import * as Consul from 'consul';
-import { InjectConsulClient } from 'nest-consul';
+import { InjectConsul } from 'nest-consul';
 
 @Component()
 export class TestService {
-  constructor(@InjectConsulClient() private readonly consul: Consul) {}
+  constructor(@InjectConsul() private readonly consul: Consul) {}
 
 }
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://opencollective.com/nest).
-
 ## Stay in touch
 
 - Author - [Miaowing](https://github.com/miaowing)
-- Website - [https://nestjs.com](https://nestjs.com/)
 
 ## License
 

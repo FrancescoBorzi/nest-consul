@@ -1,3 +1,3 @@
-import {Inject} from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 
-export const InjectConsulClient = () => Inject('ConsulClient');
+export const InjectConsul = () => Inject('ConsulClient');
