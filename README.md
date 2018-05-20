@@ -84,11 +84,11 @@ consul:
 ```typescript
 import { Component } from '@nestjs/common';
 import * as Consul from 'consul';
-import { InjectConsul } from 'nest-consul';
+import { InjectConsulClient } from 'nest-consul';
 
 @Component()
 export class TestService {
-  constructor(@InjectConsul() private readonly consul: Consul) {}
+  constructor(@InjectConsulClient() private readonly consul: Consul) {}
 
 }
 ```
